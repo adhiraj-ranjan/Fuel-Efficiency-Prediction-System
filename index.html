@@ -1,409 +1,125 @@
-<!DOCTYPE html><!DOCTYPE html>
-
-<html lang="en"><html lang="en">
-
-<head><head>
-
-    <meta charset="UTF-8">    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Fuel Efficiency Predictor</title>    <title>Fuel Efficiency Predictor</title>
-
-    <link rel="stylesheet" href="styles.css">    <link rel="stylesheet" href="styles.css">
-
-</head></head>
-
-<body><body>
-
-    <div class="container">    <div class="container">
-
-        <!-- Header -->        <!-- Home Page / Input Form -->
-
-        <header class="header">        <section id="inputSection" class="section active">
-
-            <h1>⛽ Fuel Efficiency Predictor</h1>            <div class="card">
-
-            <p class="subtitle">Estimate your vehicle's fuel consumption</p>                <div class="card-header">
-
-        </header>                    <h1>⛽ Fuel Efficiency Predictor</h1>
-
-                    <p class="subtitle">Estimate your vehicle's fuel efficiency</p>
-
-        <!-- Main Content -->                </div>
-
-        <main class="main-content">                
-
-            <!-- Input Panel -->                <form id="predictionForm" class="form">
-
-            <section class="panel input-panel" id="inputPanel">                    <div class="form-row">
-
-                <h2>Vehicle Specifications</h2>                        <div class="form-group">
-
-                                            <label for="engineSize">Engine Size (L)</label>
-
-                <!-- Engine Size Slider -->                            <input 
-
-                <div class="slider-group">                                type="number" 
-
-                    <div class="slider-header">                                id="engineSize" 
-
-                        <label for="engineSize">Engine Size</label>                                name="engineSize" 
-
-                        <span class="slider-value" id="engineSizeValue">2.5L</span>                                min="0.5" 
-
-                    </div>                                max="10" 
-
-                    <input                                 step="0.1" 
-
-                        type="range"                                 placeholder="e.g., 2.5" 
-
-                        id="engineSize"                                 required>
-
-                        class="slider"                         </div>
-
-                        min="0.8"                         
-
-                        max="6.0"                         <div class="form-group">
-
-                        step="0.1"                             <label for="horsepower">Horsepower (HP)</label>
-
-                        value="2.5"                            <input 
-
-                    >                                type="number" 
-
-                    <div class="slider-range">                                id="horsepower" 
-
-                        <span>0.8L</span>                                name="horsepower" 
-
-                        <span>6.0L</span>                                min="50" 
-
-                    </div>                                max="500" 
-
-                </div>                                step="1" 
-
-                                placeholder="e.g., 150" 
-
-                <!-- Horsepower Slider -->                                required>
-
-                <div class="slider-group">                        </div>
-
-                    <div class="slider-header">                    </div>
-
-                        <label for="horsepower">Horsepower</label>
-
-                        <span class="slider-value" id="horsepowerValue">150 HP</span>                    <div class="form-row">
-
-                    </div>                        <div class="form-group">
-
-                    <input                             <label for="weight">Weight (kg)</label>
-
-                        type="range"                             <input 
-
-                        id="horsepower"                                 type="number" 
-
-                        class="slider"                                 id="weight" 
-
-                        min="50"                                 name="weight" 
-
-                        max="400"                                 min="500" 
-
-                        step="5"                                 max="3000" 
-
-                        value="150"                                step="10" 
-
-                    >                                placeholder="e.g., 1500" 
-
-                    <div class="slider-range">                                required>
-
-                        <span>50 HP</span>                        </div>
-
-                        <span>400 HP</span>                        
-
-                    </div>                        <div class="form-group">
-
-                </div>                            <label for="cylinders">Cylinders</label>
-
-                            <select id="cylinders" name="cylinders" required>
-
-                <!-- Weight Slider -->                                <option value="">Select cylinders</option>
-
-                <div class="slider-group">                                <option value="3">3 Cylinders</option>
-
-                    <div class="slider-header">                                <option value="4">4 Cylinders</option>
-
-                        <label for="weight">Weight</label>                                <option value="5">5 Cylinders</option>
-
-                        <span class="slider-value" id="weightValue">1300 kg</span>                                <option value="6">6 Cylinders</option>
-
-                    </div>                                <option value="8">8 Cylinders</option>
-
-                    <input                                 <option value="10">10 Cylinders</option>
-
-                        type="range"                                 <option value="12">12 Cylinders</option>
-
-                        id="weight"                             </select>
-
-                        class="slider"                         </div>
-
-                        min="700"                     </div>
-
-                        max="2500" 
-
-                        step="50"                     <div class="form-group">
-
-                        value="1300"                        <label for="acceleration">Acceleration (0-100 km/h in seconds)</label>
-
-                    >                        <input 
-
-                    <div class="slider-range">                            type="number" 
-
-                        <span>700 kg</span>                            id="acceleration" 
-
-                        <span>2500 kg</span>                            name="acceleration" 
-
-                    </div>                            min="3" 
-
-                </div>                            max="20" 
-
-                            step="0.1" 
-
-                <!-- Cylinders Slider -->                            placeholder="e.g., 9.5" 
-
-                <div class="slider-group">                            required>
-
-                    <div class="slider-header">                    </div>
-
-                        <label for="cylinders">Cylinders</label>
-
-                        <span class="slider-value" id="cylindersValue">6</span>                    <button type="submit" class="btn btn-primary btn-large">
-
-                    </div>                        <span class="btn-text">Predict Mileage</span>
-
-                    <input                         <span class="btn-spinner"></span>
-
-                        type="range"                     </button>
-
-                        id="cylinders"                 </form>
-
-                        class="slider" 
-
-                        min="3"                 <div class="info-box">
-
-                        max="12"                     <p>💡 Fill in your vehicle details and click "Predict Mileage" to see estimated fuel efficiency.</p>
-
-                        step="1"                 </div>
-
-                        value="6"            </div>
-
-                    >        </section>
-
-                    <div class="slider-range">
-
-                        <span>3</span>        <!-- Result Page / Output Section -->
-
-                        <span>12</span>        <section id="resultSection" class="section">
-
-                    </div>            <div class="card">
-
-                </div>                <div class="card-header">
-
-                    <button class="btn-back" id="backBtn">← Back</button>
-
-                <!-- Acceleration Slider -->                    <h1>Prediction Results</h1>
-
-                <div class="slider-group">                </div>
-
-                    <div class="slider-header">
-
-                        <label for="acceleration">Acceleration (0-100 km/h)</label>                <!-- Predicted Mileage Result -->
-
-                        <span class="slider-value" id="accelerationValue">10 sec</span>                <div class="result-box fade-in">
-
-                    </div>                    <div class="result-value">
-
-                    <input                         <span class="mileage-number" id="mileageValue">23.7</span>
-
-                        type="range"                         <span class="mileage-unit">km/L</span>
-
-                        id="acceleration"                     </div>
-
-                        class="slider"                     <p class="result-label">Estimated Fuel Efficiency</p>
-
-                        min="5"                 </div>
-
-                        max="25" 
-
-                        step="0.5"                 <!-- Chart Section -->
-
-                        value="10"                <div class="chart-container fade-in" style="animation-delay: 0.2s;">
-
-                    >                    <h2>Weight vs Fuel Efficiency Trend</h2>
-
-                    <div class="slider-range">                    <div class="bar-chart">
-
-                        <span>5 sec</span>                        <div class="bar-item">
-
-                        <span>25 sec</span>                            <div class="bar-label">Light (1000kg)</div>
-
-                    </div>                            <div class="bar-wrapper">
-
-                </div>                                <div class="bar" style="height: 85%; background: #22c55e;"></div>
-
-                                <span class="bar-value">28.5 km/L</span>
-
-                <!-- Predict Button -->                            </div>
-
-                <button class="btn btn-predict" id="predictBtn">Predict Mileage</button>                        </div>
-
-            </section>                        <div class="bar-item">
-
-                            <div class="bar-label">Medium (1500kg)</div>
-
-            <!-- Result Panel (Hidden by default) -->                            <div class="bar-wrapper">
-
-            <section class="panel result-panel" id="resultPanel">                                <div class="bar" style="height: 65%; background: #3b82f6;"></div>
-
-                <div class="result-header">                                <span class="bar-value">23.7 km/L</span>
-
-                    <h2>Prediction Results</h2>                            </div>
-
-                    <button class="btn btn-small btn-back" id="backBtn">← Adjust Values</button>                        </div>
-
-                </div>                        <div class="bar-item">
-
-                            <div class="bar-label">Heavy (2000kg)</div>
-
-                <!-- Mileage Display -->                            <div class="bar-wrapper">
-
-                <div class="mileage-box">                                <div class="bar" style="height: 50%; background: #f59e0b;"></div>
-
-                    <p class="mileage-label">Estimated Fuel Efficiency</p>                                <span class="bar-value">18.2 km/L</span>
-
-                    <p class="mileage-value" id="mileageValue">18.4 km/l</p>                            </div>
-
-                    <p class="mileage-sublabel">Based on your vehicle specifications</p>                        </div>
-
-                </div>                        <div class="bar-item">
-
-                            <div class="bar-label">Very Heavy (2500kg)</div>
-
-                <!-- Chart Section -->                            <div class="bar-wrapper">
-
-                <div class="chart-section">                                <div class="bar" style="height: 30%; background: #ef4444;"></div>
-
-                    <h3>Weight vs Mileage Trend</h3>                                <span class="bar-value">12.5 km/L</span>
-
-                    <div class="chart-container" id="chartContainer">                            </div>
-
-                        <canvas id="trendChart"></canvas>                        </div>
-
-                    </div>                    </div>
-
-                </div>                </div>
-
-
-
-                <!-- Insights Box -->                <!-- Insights/Suggestions -->
-
-                <div class="insights-box">                <div class="insights-container fade-in" style="animation-delay: 0.4s;">
-
-                    <h3>💡 Insights</h3>                    <h2>💡 Fuel Efficiency Tips</h2>
-
-                    <ul class="insights-list" id="insightsList">                    <div class="insights-grid">
-
-                        <li>Higher weight reduces fuel efficiency by ~2.5% per 100kg increase.</li>                        <div class="insight-card">
-
-                        <li>Moderate horsepower (120-180 HP) typically improves fuel economy.</li>                            <div class="insight-icon">⚙️</div>
-
-                        <li>Larger engine displacement increases fuel consumption.</li>                            <p><strong>Weight Matters:</strong> Lighter vehicles consume less fuel. Reducing unnecessary weight by 10% can improve efficiency by ~5-7%.</p>
-
-                        <li>Better acceleration efficiency means optimized combustion.</li>                        </div>
-
-                    </ul>                        <div class="insight-card">
-
-                </div>                            <div class="insight-icon">🏎️</div>
-
-                            <p><strong>Horsepower Balance:</strong> Moderate horsepower provides better efficiency. Excessive power leads to higher fuel consumption.</p>
-
-                <!-- Summary Stats -->                        </div>
-
-                <div class="summary-stats">                        <div class="insight-card">
-
-                    <div class="stat-card">                            <div class="insight-icon">🔧</div>
-
-                        <span class="stat-label">Engine Size</span>                            <p><strong>Engine Size:</strong> Smaller engines are typically more fuel-efficient, but efficiency also depends on driving conditions.</p>
-
-                        <span class="stat-value" id="summaryEngine">2.5L</span>                        </div>
-
-                    </div>                        <div class="insight-card">
-
-                    <div class="stat-card">                            <div class="insight-icon">⚡</div>
-
-                        <span class="stat-label">Weight</span>                            <p><strong>Acceleration Profile:</strong> Vehicles with smoother acceleration patterns tend to have better fuel economy over time.</p>
-
-                        <span class="stat-value" id="summaryWeight">1300 kg</span>                        </div>
-
-                    </div>                    </div>
-
-                    <div class="stat-card">                </div>
-
-                        <span class="stat-label">Horsepower</span>
-
-                        <span class="stat-value" id="summaryHP">150 HP</span>                <!-- Input Summary -->
-
-                    </div>                <div class="summary-box fade-in" style="animation-delay: 0.6s;">
-
-                    <div class="stat-card">                    <h3>Vehicle Summary</h3>
-
-                        <span class="stat-label">Cylinders</span>                    <div class="summary-grid">
-
-                        <span class="stat-value" id="summaryCylinders">6</span>                        <div class="summary-item">
-
-                    </div>                            <span class="summary-label">Engine Size</span>
-
-                </div>                            <span class="summary-value" id="summaryEngineSize">—</span>
-
-            </section>                        </div>
-
-        </main>                        <div class="summary-item">
-
-                            <span class="summary-label">Horsepower</span>
-
-        <!-- Loading Animation -->                            <span class="summary-value" id="summaryHorsepower">—</span>
-
-        <div class="loading-overlay" id="loadingOverlay">                        </div>
-
-            <div class="loader">                        <div class="summary-item">
-
-                <div class="spinner"></div>                            <span class="summary-label">Weight</span>
-
-                <p>Analyzing vehicle specs...</p>                            <span class="summary-value" id="summaryWeight">—</span>
-
-            </div>                        </div>
-
-        </div>                        <div class="summary-item">
-
-    </div>                            <span class="summary-label">Cylinders</span>
-
-                            <span class="summary-value" id="summaryCylinders">—</span>
-
-    <script src="script.js"></script>                        </div>
-
-</body>                        <div class="summary-item">
-
-</html>                            <span class="summary-label">Acceleration (0-100)</span>
-
-                            <span class="summary-value" id="summaryAcceleration">—</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Efficiency Predictor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Fuel Efficiency Predictor</h1>
+            <p class="subtitle">Adjust vehicle parameters and see real-time predictions</p>
+
+            <!-- Vehicle Selection -->
+            <div class="vehicle-selector">
+                <label for="vehicleSelect">Select a Car Model:</label>
+                <select id="vehicleSelect">
+                    <option value="">-- Choose a car model --</option>
+                    <option value="civic">Honda Civic (2023)</option>
+                    <option value="accord">Honda Accord (2023)</option>
+                    <option value="corolla">Toyota Corolla (2023)</option>
+                    <option value="camry">Toyota Camry (2023)</option>
+                    <option value="crv">Honda CR-V (2023)</option>
+                    <option value="rav4">Toyota RAV4 (2023)</option>
+                    <option value="highlander">Toyota Highlander (2023)</option>
+                    <option value="f150">Ford F-150 (2023)</option>
+                    <option value="mustang">Ford Mustang (2023)</option>
+                    <option value="tesla">Tesla Model 3 (2023)</option>
+                    <option value="prius">Toyota Prius (2023)</option>
+                    <option value="bmw">BMW M440i (2023)</option>
+                </select>
+            </div>
+
+            <div class="main-layout">
+                <!-- Left Side: Sliders -->
+                <div class="left-panel">
+                    <h2>Vehicle Specifications</h2>
+                    
+                    <div class="sliders-container">
+                        <!-- Engine Size -->
+                        <div class="slider-group">
+                            <div class="label-row">
+                                <label for="engineSize">Engine Size (L)</label>
+                                <span class="value-display" id="engineSizeValue">2.0</span>
+                            </div>
+                            <input type="range" id="engineSize" class="slider" min="0.8" max="6.0" step="0.1" value="2.0">
+                            <div class="range-info"><span>0.8L</span><span>6.0L</span></div>
+                        </div>
+
+                        <!-- Horsepower -->
+                        <div class="slider-group">
+                            <div class="label-row">
+                                <label for="horsepower">Horsepower (HP)</label>
+                                <span class="value-display" id="horsepowerValue">150</span>
+                            </div>
+                            <input type="range" id="horsepower" class="slider" min="50" max="400" step="5" value="150">
+                            <div class="range-info"><span>50 HP</span><span>400 HP</span></div>
+                        </div>
+
+                        <!-- Weight -->
+                        <div class="slider-group">
+                            <div class="label-row">
+                                <label for="weight">Weight (kg)</label>
+                                <span class="value-display" id="weightValue">1500</span>
+                            </div>
+                            <input type="range" id="weight" class="slider" min="700" max="2500" step="50" value="1500">
+                            <div class="range-info"><span>700 kg</span><span>2500 kg</span></div>
+                        </div>
+
+                        <!-- Cylinders -->
+                        <div class="slider-group">
+                            <div class="label-row">
+                                <label for="cylinders">Cylinders</label>
+                                <span class="value-display" id="cylindersValue">6</span>
+                            </div>
+                            <input type="range" id="cylinders" class="slider" min="3" max="12" step="1" value="6">
+                            <div class="range-info"><span>3</span><span>12</span></div>
+                        </div>
+
+                        <!-- Acceleration -->
+                        <div class="slider-group">
+                            <div class="label-row">
+                                <label for="acceleration">Acceleration 0-100 (sec)</label>
+                                <span class="value-display" id="accelerationValue">10</span>
+                            </div>
+                            <input type="range" id="acceleration" class="slider" min="5" max="25" step="0.5" value="10">
+                            <div class="range-info"><span>5 sec</span><span>25 sec</span></div>
                         </div>
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-primary btn-large" id="predictAgainBtn">Predict Again</button>
+                <!-- Right Side: Results -->
+                <div class="right-panel">
+                    <!-- Mileage Card -->
+                    <div class="result-box mileage-box">
+                        <p class="result-label">Estimated Fuel Efficiency</p>
+                        <div class="result-value" id="mileageValue">18.4</div>
+                        <p class="result-unit">km/l</p>
+                    </div>
+
+                    <!-- Chart -->
+                    <div class="chart-box">
+                        <h3>Weight vs Mileage Trend</h3>
+                        <div class="chart-container">
+                            <canvas id="trendChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Insights -->
+                    <div class="insights-box">
+                        <h3>Key Insights</h3>
+                        <ul id="insightsList">
+                            <li>Loading insights...</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
